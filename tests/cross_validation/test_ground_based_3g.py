@@ -105,9 +105,7 @@ def test_spinning_time_to_merger_matches_bilby_xg(chi1, chi2):
     expected = xg_utils.calculate_time_to_merger_for_any_mode(
         FREQUENCIES, M1, M2, chi1, chi2, mode=2
     )
-    actual = np.asarray(
-        time_to_merger(jnp.asarray(FREQUENCIES), M_C, ETA, chi1, chi2)
-    )
+    actual = np.asarray(time_to_merger(jnp.asarray(FREQUENCIES), M_C, ETA, chi1, chi2))
     # Both evaluate the same closed form and agree to ~1e-15; the spin-spin
     # term is at least ~4e-6 of tau over this band, so 1e-12 resolves it.
     np.testing.assert_allclose(actual, expected, rtol=1e-12, atol=0.0)
