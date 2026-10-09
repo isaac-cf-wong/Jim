@@ -7,13 +7,9 @@
                                             exact GMST of each emission time
     GroundBased3G (rotation + finite size)  bilby_xG frequency_dependent_antenna_response
 
-The bilby_xG comparison runs only when ``bilby_xG`` is installed; it is not a
-dependency of jimgw.
+``bilby_xG`` is installed with the ``cross-validation`` dependency group; it is
+not a runtime dependency of jimgw, and the comparison skips without it.
 """
-
-import os
-
-os.environ["JAX_PLATFORMS"] = "cpu"
 
 import jax.numpy as jnp
 import numpy as np
